@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SistemaVendasMVC.Models;
+using SistemaVendasMVC.Models.ViewModels;
 
 namespace SistemaVendasMVC.Controllers
 {
