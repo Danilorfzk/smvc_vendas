@@ -38,14 +38,17 @@ namespace SistemaVendasMVC
 
             services.AddDbContext<SistemaVendasMVCContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("SistemaVendasMVCContext"), builder => builder.MigrationsAssembly("SistemaVendasMVC")));
+
+            services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed(); //Responsavel por popular a base de dados.
             }
             else
             {
